@@ -1,6 +1,6 @@
 # Interaktywna wizualizacja wyników badania własnego
 
-Projekt został stworzony w ramach pracy licencjackiej na temat "Akceptacja robotów społecznych w gospodarstwach domowych" i jest częścią praktyczną (wytworem) danej pracy. Pełna dokumentacja projektu jest zamieszczona w pracy w sekcji załączników.
+Projekt został stworzony w ramach pracy licencjackiej na temat "Akceptacja robotów społecznych w gospodarstwach domowych" studentki Uniwersytetu SWPS kierunku "Psychologia i Informatyka" Yelyzavety Tanskiej i jest częścią praktyczną (wytworem) danej pracy. Pełna dokumentacja projektu jest zamieszczona w pracy w sekcji załączników.
  
 ### Wstęp
 
