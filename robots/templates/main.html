@@ -1,0 +1,185 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <!-- Option 1: Include in HTML -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <title>Robots</title>
+    <link rel="stylesheet" href="{% static 'css/style.css'%}?{% now 'U' %}">
+    <script src="{% static 'js/main.js'%}?{% now 'U' %}"></script>
+    <title>Document</title>
+</head>
+<body class="container min-vh-100 min-vw-100 overflow-hidden">
+    <div class="container-sm w-100 h-100">
+        <div class="row row-cols-1 gy-2 h-100">
+            <div class="col h-10">
+                <div class="row gx-4 mt-4 w-auto" >
+                    <div class="col-4 cont-h">
+                        <div class="row">
+                            <div class="col">
+                                <button type="button" class="btn btn-cus w-100" id="about">About</button>
+                            </div>
+                            <div class="col">
+                                <button type="button" class="btn btn-cus w-100" id="how_to">How to</button>
+                            </div>
+                            <div class="col">
+                                <button type="button" class="btn btn-cus w-100 btn-dan" id="reset">
+                                    <i class="bi bi-x-sm"></i>
+                                        <span>Reset Filters </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col h-90">
+                <div class="row row-cols-1 gy-4 h-100">
+                    <div class="col h-50" id="statistics">
+                        <div class="row gx-4 h-100">
+                            <div class="col-5 h-100">
+                                <div class="row row-cols-1 h-100 w-100">
+                                    <div class="col-12 cont p-4 h-100" id="resp">
+                                        <div class="row row-cols-1 gx-0 gy-2 h-100">
+                                            <div class="col h-12 ">
+                                                <span class="h4" id="respondents">RESPONDENTS</span>
+                                                <hr>
+                                            </div>
+                                            <div class="col h-22">
+                                                <div class=" h-100" id="chart-container">
+                                                </div>
+                                            </div>
+                                            <div class="col h-22">
+                                                <div class="chart h-100" id="chart-container1">
+                                                </div>
+                                            </div>
+                                            <div class="col h-22">
+                                                <div class=" h-100" id="chart-container2">
+                                                </div>
+                                            </div>
+                                            <div class="col h-22">
+                                                <div class=" h-100" id="chart-container3">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-4 h-100">
+                                <div class="row row-cols-1 h-100 w-100">
+                                    <div class="col-12 cont p-4 h-100" id="rob">
+                                        <div class="container h-100 p-0 m-0  ">
+                                            <div class="row row-cols-1 h-12">
+                                                <div class="col h-100">
+                                                    <span class="h4" id="robot_sp">ROBOT</span>
+                                                    <hr id="robot_hr">
+                                                </div>
+                                            </div>
+                                            <div class="row row-cols-1 gx-2 gy-2 h-24">
+                                                <div class="col">
+                                                    <div class="chart h-100" id="violin-4">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row row-cols-3 gx-2 gy-2 h-74" style="padding-top: var(--bs-gutter-y)">
+                                                <div class="col h-100 ">
+                                                    <div class="chart h-100" id = "violin-1">
+                                                    </div>
+                                                </div>
+                                                <div class="col h-100">
+                                                    <div class="chart h-100" id = "violin-2">
+                                                    </div>
+                                                </div>
+                                                <div class="col h-100">
+                                                    <div class="chart h-100" id = "violin-3">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3 h-100">
+                                <div class="row row-cols-1 h-100 w-100">
+                                    <div class="col-12 cont p-4 h-100" id="ann">
+                                        <div class="row row-cols-1 gx-0 gy-2 h-100" style="position: relative;">
+                                            <div class="col h-12" style="height: fit-content;">
+                                                <span class="h4" style="text-align: center; width: 100%;" id="tit_ann">ANSWERS</span>
+                                                <hr>
+                                            </div>
+                                            <div class="col h-100" style="position: absolute;" >
+                                                <div class=" h-100" id="answers">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col h-45">
+                        <div class="row gx-4 h-100">
+                            <div class="col-12 h-100">
+                                <div class="row row-cols-1 h-100 w-100">
+                                    <div class="col-12 cont h-100 p-4" id="robot_photos">
+                                        <div class="row gx-0 gy-2 h-100 justify-content-center">
+                                            {% for robot in robots %}
+                                                <div class="col-1 robot-photo-columns" name="{{ robot.name }}"  robot_id="{{ robot.robot_id }}" hls="{{ robot.hls }}" ff="{{ robot.ff }}" bm="{{ robot.bm }}" sl="{{ robot.sl }}" style="cursor: pointer;">
+                                                    <img src="{{ robot.photo.url }}" alt="{{ robot.name }}" class="img-fluid ">
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="modall" style="display: none">
+        <div class="modall-content">
+            <div class="m_click_robot">
+                <span>Kliknij robota, aby zobaczyć wyłącznie statystyki dla niego &#x2B07;</span>
+            </div>
+            <div class="m_reset_filters">
+                <span>&#x2B05;Kliknij na czerwony przycisk,</br> aby wyresetować wszystkie filtry</span>
+            </div>
+            <i class="bi bi-x-lg" id="close"></i>
+            <div class="m_interactive_statistics">
+                <span>Tutaj znajdują się statystyki interaktywne dla próby badawczej: poprzez kliknięcie kółka lub przeciągniecie zakresu na wykresach, możesz zobaczyć jakie oceny były najczęściej uzyskane dla danej grupy. Aby usunąć partykularny filtr, kliknij czerwony przycisk obok wykresu.</span>
+            </div>
+            <div class="m_tooltip">
+                <span>Tutaj znajdują się oceny nadawane robotom w skali od 1 do 5, dokładne wartości można sprawdzić przez najechanie myszką na interesujący nas obiekt. Im większe jest koło, tym więcej ocen takiej wartości było nadawane.</span>
+            </div>
+        </div>
+    </div>
+    <div class="about" style="display: none">
+        <div class="about-content">
+            <div class="about-text">
+                <i class="bi bi-x-lg"  id="close_about"></i>
+                <h1 class="sst"></h1>
+                <p>Projekt powstał w ramach pracy licencjackiej "Akceptacja robotów społecznych w gospodarstwach domowych". </p>
+                <p>Celem projektu było stworzenie interaktywnej wizualizacji danych, która pozwala na analizę danych z przeprowadzonego badania własnego. Aplikacja pozwala na wybór różnych filtrów aby zobaczyć jakie oceny najczęściej były uzyskany w zaznaczonych filtrach.</p>
+                <p>W aplikacji wykorzystano takie technologie jak: </p>
+                <li>Django, </li>
+                <li>JavaScript, </li>
+                <li>D3.js,</li>
+                <li> Bootstrap.</li>
+                <p>Projekt został stworzony przez studentkę Uniwersytetu SWPS Yelyzavetę Tanską w ramach wytwóru pracy licencjackiej </p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
